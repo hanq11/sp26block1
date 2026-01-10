@@ -12,6 +12,13 @@
     <title>Title</title>
 </head>
 <body>
+    Them truong hoc:
+    <form action="/truong-hoc/them" method="post">
+        Ten truong: <input type="text" name="tenTruong"> <br>
+        Dia chi: <input type="text" name="diaChi"> <br>
+        <button>Save</button>
+    </form>
+    <br>
     Bang thong tin:
     <table>
         <thead>
@@ -28,6 +35,10 @@
                     <td>${th.id}</td>
                     <td>${th.tenTruong}</td>
                     <td>${th.diaChi}</td>
+                    <td>
+                        <a href="/truong-hoc/view-update?id=${th.id}">View update</a>
+                        <a href="/truong-hoc/xoa?id=${th.id}">Xoa</a>
+                    </td>
                 </tr>
             </c:forEach>
         </tbody>
