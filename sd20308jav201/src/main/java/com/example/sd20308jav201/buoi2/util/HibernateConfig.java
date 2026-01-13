@@ -1,5 +1,6 @@
 package com.example.sd20308jav201.buoi2.util;
 
+import com.example.sd20308jav201.buoi2.model.GiangVien;
 import com.example.sd20308jav201.buoi2.model.TruongHoc;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -24,6 +25,7 @@ public class HibernateConfig {
         properties.put(Environment.SHOW_SQL, "true");
 
         conf.addAnnotatedClass(TruongHoc.class);
+        conf.addAnnotatedClass(GiangVien.class);
 
         conf.setProperties(properties);
         ServiceRegistry registry = new StandardServiceRegistryBuilder()
