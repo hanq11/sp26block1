@@ -5,9 +5,10 @@
     <title>Title</title>
 </head>
 <body>
+    <span th:text="${message}"></span>
     Thong tin dang nhap:
     <br>
-    User: [[ ${user} ]] <br>
-    Pass: [[ ${pass} ]]
+    User: [[ ${login.user} ]] <br>
+    Pass: [[ ${login.pass} ]]
 </body>
 </html>
