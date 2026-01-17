@@ -12,6 +12,24 @@
     <title>Title</title>
 </head>
 <body>
+    Them giang vien:
+    <form action="/giang-vien/them" method="post">
+        Ten giang vien: <input type="text" name="tenGiangVien"> <br>
+        Tuoi: <input type="text" name="tuoi"> <br>
+        Gioi tinh:
+            Nam: <input type="radio" value="false" name="gioiTinh">
+            Nu: <input type="radio" value="true" name="gioiTinh">
+        <br>
+        Truong hoc:
+            <select name="idTruongHoc">
+                <c:forEach items="${listTruongHoc}" var="th">
+                    <option value="${th.id}" label="${th.tenTruong}"></option>
+                </c:forEach>
+            </select>
+        <br>
+        <button>Save</button>
+    </form>
+    <br>
     Bang thong tin:
     <table>
         <thead>
@@ -35,8 +53,8 @@
                 <td>${gv.truongHoc.tenTruong}</td>
                 <td>${gv.truongHoc.diaChi}</td>
                 <td>
-                    <a href="/giang-vien/view-update?id=${th.id}">View update</a>
-                    <a href="/giang-vien/xoa?id=${th.id}">Xoa</a>
+                    <a href="/giang-vien/view-update?id=${gv.id}">View update</a>
+                    <a href="/giang-vien/xoa?id=${gv.id}">Xoa</a>
                 </td>
             </tr>
         </c:forEach>
