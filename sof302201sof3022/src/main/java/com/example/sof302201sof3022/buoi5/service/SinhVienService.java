@@ -23,7 +23,7 @@ public class SinhVienService {
 
     public SinhVien findById(Integer id) {
         for(SinhVien sv: danhSach) {
-            if(sv.getId() == id) {
+            if(sv.getId().equals(id)) {
                 return sv;
             }
         }
@@ -37,7 +37,7 @@ public class SinhVienService {
     public void updateSinhVien(SinhVien sinhVien) {
         int indexCanSua = -1;
         for(int i = 0; i < danhSach.size(); i++) {
-            if(danhSach.get(i).getId() == sinhVien.getId()) {
+            if(danhSach.get(i).getId().equals(sinhVien.getId())) {
                 indexCanSua = i;
             }
         }
@@ -45,6 +45,6 @@ public class SinhVienService {
     }
 
     public void deleteSinhVien(Integer id) {
-        danhSach.removeIf(sinhVien -> sinhVien.getId() == id);
+        danhSach.removeIf(sinhVien -> sinhVien.getId().equals(id));
     }
 }

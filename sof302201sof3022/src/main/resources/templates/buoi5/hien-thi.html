@@ -11,8 +11,8 @@
         Id: <input type="text" name="id"> <br>
         Ten: <input type="text" name="ten"> <br>
         Gioi tinh:
-            Nam <input type="radio" value="true">
-            Nu: <input type="radio" value="false">
+            Nam <input type="radio" value="true" name="gioiTinh">
+            Nu: <input type="radio" value="false" name="gioiTinh">
         <br>
         Tuoi: <input type="text" name="tuoi"> <br>
         <button>Them</button>
@@ -36,6 +36,10 @@
                     <td th:text="${sv.ten}"></td>
                     <td th:text="${sv.gioiTinh == true ? 'Nam' : 'Nu'}"></td>
                     <td th:text="${sv.tuoi}"></td>
+                    <td>
+                        <a th:href="@{|/sinh-vien/view-update/${sv.id}|}">View update</a>
+                        <a th:href="@{|/sinh-vien/xoa?id=${sv.id}|}">Xoa</a>
+                    </td>
                 </tr>
             </th:block>
         </tbody>

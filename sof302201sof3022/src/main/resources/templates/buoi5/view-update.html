@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th=“http://www.thymeleaf.org”>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    Sua sinh vien:
+    <form action="/sinh-vien/sua" method="post">
+        Id: <input type="text" name="id" th:value="${sv.id}"> <br>
+        Ten: <input type="text" name="ten" th:value="${sv.ten}"> <br>
+        Gioi tinh:
+        Nam <input type="radio" value="true" th:checked="${sv.gioiTinh}" name="gioiTinh">
+        Nu: <input type="radio" value="false" th:checked="${!sv.gioiTinh}" name="gioiTinh">
+        <br>
+        Tuoi: <input type="text" name="tuoi" th:value="${sv.tuoi}"> <br>
+        <button>Sua</button>
+    </form>
+</body>
+</html>
