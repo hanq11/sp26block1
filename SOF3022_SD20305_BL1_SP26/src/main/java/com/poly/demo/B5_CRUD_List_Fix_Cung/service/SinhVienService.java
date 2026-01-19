@@ -29,4 +29,27 @@ public class SinhVienService {
     public void addSinhVien(SinhVien sinhVien) {
         lists.add(sinhVien);
     }
+
+    public SinhVien getSinhVienByMSSV(String mssv) {
+        for(SinhVien sv: lists) {
+            if(sv.getMssv().equals(mssv)) {
+                return sv;
+            }
+        }
+        return null;
+    }
+
+    public void updateSinhVien(SinhVien sinhVien) {
+        int indexCanSua = -1;
+        for(int i = 0; i < lists.size(); i++) {
+            if(lists.get(i).getMssv().equals(sinhVien.getMssv())) {
+                indexCanSua = i;
+            }
+        }
+        lists.set(indexCanSua, sinhVien);
+    }
+
+    public void deleteSinhVien(String mssv) {
+        lists.removeIf(sinhVien -> sinhVien.getMssv().equals(mssv));
+    }
 }

@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class SinhVienController {
@@ -34,6 +36,24 @@ public class SinhVienController {
     @PostMapping("sinh-vien/add")
     public String addSinhVien(SinhVien sinhVien) {
         service.addSinhVien(sinhVien);
+        return "redirect:/sinh-vien/hien-thi";
+    }
+
+    @GetMapping("sinh-vien/view-update/{mssv}")
+    public String viewUpdate(@PathVariable("mssv") String mssv, Model model) {
+        model.addAttribute("sv", service.getSinhVienByMSSV(mssv));
+        return "buoi4/update-sinh-vien";
+    }
+
+    @PostMapping("sinh-vien/update")
+    public String updateSinhVien(SinhVien sinhVien) {
+        service.updateSinhVien(sinhVien);
+        return "redirect:/sinh-vien/hien-thi";
+    }
+
+    @GetMapping("sinh-vien/delete")
+    public String deleteSinhVien(@RequestParam("mssv") String mssv) {
+        service.deleteSinhVien(mssv);
         return "redirect:/sinh-vien/hien-thi";
     }
 }

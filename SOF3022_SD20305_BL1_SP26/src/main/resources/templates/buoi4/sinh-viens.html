@@ -38,6 +38,10 @@
         <td th:text="${sv.age}"></td>
         <td th:text="${sv.address}"> </td>
         <td th:text="${sv.gender == true ? 'Nam' : 'Nu'}"></td>
+        <td>
+            <a th:href="@{|/sinh-vien/view-update/${sv.mssv}|}">View update</a>
+            <a th:href="@{|/sinh-vien/delete?mssv=${sv.mssv}|}">Delete</a>
+        </td>
     </tr>
     </tbody>
 </table>
