@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--${test}-->
+<!--thymeaft: th: => Dat trong 1 the -->
+<!--Cu phap thymeaft:
+C1: ${ten bien} => CHI DUNG CHO BIEN DUOC TRUYEN TU CONTROLLER => HTML
+C2: *{ten} => Dung cho thuoc tinh cua 1 doi tuong ben HTML thay cho ham get
+sv => sv.getTen() => *{ten}
+C3: @{ten} => Dung cho duong dan truyen tham so
+-->
+<span th:text="${test}"></span>
+<form method="POST" th:action="@{/ket-qua}" th:object="${login1}">
+    <label>Username</label>
+<!--    <input type="text" name="username" th:field="${login1.getUsername()}"><br>-->
+    <input type="text" name="username" th:field="*{username}">
+    <span th:errors="*{username}" style="color: red"></span>
+    <br>
+    <label>Pass</label>
+    <input type="text" name="password" th:field="*{password}">
+    <span th:errors="*{password}" style="color: red"></span>
+    <br>
+    <button type="submit">login</button>
+</form>
+</body>
+</html>

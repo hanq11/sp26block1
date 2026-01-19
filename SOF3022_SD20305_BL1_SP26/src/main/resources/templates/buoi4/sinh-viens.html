@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student List</title>
+</head>
+<body>
+<h1>Header</h1>
+<form>
+    <label for="search">Tên:</label>
+    <input type="text" id="search" name="search">
+    <button type="submit">Search</button>
+    <label>Dia chi</label>
+
+</form>
+<select>
+    <option th:each="sv:${lists}" th:text="${sv.name}" th:value="${sv.mssv}"></option>
+</select>
+<button>
+    <a href="/sinh-vien/add">Add Student</a>
+</button>
+<table border="1">
+    <thead>
+    <tr>
+        <th>MSSV</th>
+        <th>Tên</th>
+        <th>Tuổi</th>
+        <th>Địa chỉ</th>
+        <th>Giới tính</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="sv:${lists}">
+        <td th:text="${sv.mssv}"></td>
+        <td th:text="${sv.name}"></td>
+        <td th:text="${sv.age}"></td>
+        <td th:text="${sv.address}"> </td>
+        <td th:text="${sv.gender == true ? 'Nam' : 'Nu'}"></td>
+    </tr>
+    </tbody>
+</table>
+<h1>Footer</h1>
+</body>
+</html>
