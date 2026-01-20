@@ -21,7 +21,7 @@ public class SinhVien {
     private String ten;
 
     @Column(name = "tuoi")
-    private String tuoi;
+    private Integer tuoi;
 
     @Column(name = "gioi_tinh")
     private Boolean gioiTinh;
