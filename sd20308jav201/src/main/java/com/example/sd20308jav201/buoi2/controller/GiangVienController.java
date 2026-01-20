@@ -18,6 +18,8 @@ import java.io.IOException;
         "/giang-vien/xoa", // GET
         "/giang-vien/them", // POST
         "/giang-vien/sua", // POST
+        "/giang-vien/tim-kiem", // GET
+        "/giang-vien/phan-trang", // GET
 })
 public class GiangVienController extends HttpServlet {
     GiangVienRepository giangVienRepository = new GiangVienRepository();
@@ -32,7 +34,34 @@ public class GiangVienController extends HttpServlet {
             viewUpdate(req, resp);
         } else if(uri.contains("xoa")) {
             xoaGiangVien(req, resp);
+        } else if(uri.contains("tim-kiem")) {
+            timKiem(req, resp);
+        } else if(uri.contains("phan-trang")) {
+            phanTrang(req, resp);
         }
+    }
+
+    private void phanTrang(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int page = 0;
+        int size = 3;
+        if (req.getParameter("page") != null) {
+            page = Integer.valueOf(req.getParameter("page"));
+        }
+        req.setAttribute("page", page);
+        int totalRows = giangVienRepository.getAll().size();
+        double totalPages = Math.ceil((double) totalRows / size);
+        req.setAttribute("totalPages", (int) totalPages);
+
+        req.setAttribute("listGiangVien", giangVienRepository.phanTrang(page, size));
+        req.setAttribute("listTruongHoc", truongHocRepository.getAll());
+        req.getRequestDispatcher("/buoi4/hien-thi.jsp").forward(req, resp);
+    }
+
+    private void timKiem(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String ten = req.getParameter("ten");
+        req.setAttribute("listGiangVien", giangVienRepository.searchByTen(ten));
+        req.setAttribute("listTruongHoc", truongHocRepository.getAll());
+        req.getRequestDispatcher("/buoi4/hien-thi.jsp").forward(req, resp);
     }
 
     private void xoaGiangVien(HttpServletRequest req, HttpServletResponse resp) throws IOException {
