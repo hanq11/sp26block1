@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>sd21101huyennk6lab3</artifactId>
+    <artifactId>sd21101sof203</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>sd21101huyennk6lab3</name>
+    <name>sd21101sof203</name>
     <packaging>war</packaging>
 
     <properties>
@@ -35,6 +35,7 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+        <!--JSTL-->
         <dependency>
             <groupId>jakarta.servlet.jsp.jstl</groupId>
             <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
@@ -44,6 +45,19 @@
             <groupId>org.glassfish.web</groupId>
             <artifactId>jakarta.servlet.jsp.jstl</artifactId>
             <version>3.0.1</version>
+        </dependency>
+        <!--LOMBOK-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
+            <scope>provided</scope>
+        </dependency>
+        <!--MSSQL JDBC -->
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>12.2.0.jre11</version>
         </dependency>
     </dependencies>
 
