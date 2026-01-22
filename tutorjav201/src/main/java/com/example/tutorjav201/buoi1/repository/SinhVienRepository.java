@@ -1,7 +1,7 @@
-package com.example.tutorjav201.repository;
+package com.example.tutorjav201.buoi1.repository;
 
-import com.example.tutorjav201.model.SinhVien;
-import com.example.tutorjav201.util.HibernateConfig;
+import com.example.tutorjav201.buoi1.model.SinhVien;
+import com.example.tutorjav201.buoi1.util.HibernateConfig;
 import org.hibernate.Session;
 
 import java.util.List;

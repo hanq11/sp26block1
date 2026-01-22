@@ -1,4 +1,4 @@
-package com.example.tutorjav201.model;
+package com.example.tutorjav201.buoi1.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

@@ -1,8 +1,8 @@
-package com.example.tutorjav201.controller;
+package com.example.tutorjav201.buoi1.controller;
 
 
-import com.example.tutorjav201.model.SinhVien;
-import com.example.tutorjav201.repository.SinhVienRepository;
+import com.example.tutorjav201.buoi1.model.SinhVien;
+import com.example.tutorjav201.buoi1.repository.SinhVienRepository;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

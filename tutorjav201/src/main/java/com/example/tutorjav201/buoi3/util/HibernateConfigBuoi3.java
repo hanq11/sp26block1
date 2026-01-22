@@ -1,6 +1,6 @@
-package com.example.tutorjav201.util;
-
-import com.example.tutorjav201.model.SinhVien;
+package com.example.tutorjav201.buoi3.util;
+import com.example.tutorjav201.buoi3.model.DonHang;
+import com.example.tutorjav201.buoi3.model.SanPham;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -9,7 +9,7 @@ import org.hibernate.service.ServiceRegistry;
 
 import java.util.Properties;
 
-public class HibernateConfig {
+public class HibernateConfigBuoi3 {
     private static final SessionFactory FACTORY;
 
     static {
@@ -23,7 +23,9 @@ public class HibernateConfig {
         properties.put(Environment.PASS, "123456");
         properties.put(Environment.SHOW_SQL, "true");
 
-        conf.addAnnotatedClass(SinhVien.class);
+        conf.addAnnotatedClass(DonHang.class);
+        conf.addAnnotatedClass(SanPham.class);
+//        conf.addAnnotatedClass(SinhVien.class);
 //        conf.addAnnotatedClass(GiangVien.class);
 
         conf.setProperties(properties);
