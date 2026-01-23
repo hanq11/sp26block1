@@ -1,5 +1,6 @@
 package com.example.sd21101sof203.buoi8.controller;
 
+import com.example.sd21101sof203.buoi8.entity.NguoiDung;
 import com.example.sd21101sof203.buoi8.repository.NguoiDungRepository;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -30,5 +31,25 @@ public class NguoiDungServlet extends HttpServlet {
     private void hienThi(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("listNguoiDung", nguoiDungRepository.getAll());
         req.getRequestDispatcher("/buoi8/hien-thi.jsp").forward(req, resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String uri = req.getRequestURI();
+        if(uri.contains("them")) {
+            themNguoiDung(req, resp);
+        }
+    }
+
+    private void themNguoiDung(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        String ten = req.getParameter("ten");
+        String email = req.getParameter("email");
+        Integer tuoi = Integer.valueOf(req.getParameter("tuoi"));
+        Boolean dangHoatDong = Boolean.valueOf(req.getParameter("dangHoatDong"));
+
+        NguoiDung nguoiDung = new NguoiDung(null, ten, email, tuoi, dangHoatDong);
+        nguoiDungRepository.themNguoiDung(nguoiDung);
+
+        resp.sendRedirect("/nguoi-dung/hien-thi");
     }
 }

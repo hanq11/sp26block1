@@ -12,7 +12,18 @@
     <title>Title</title>
 </head>
 <body>
-
+    Them nguoi dung:
+    <form action="/nguoi-dung/them" method="post">
+        Ten: <input type="text" name="ten"> <br>
+        Email: <input type="text" name="email"> <br>
+        Tuoi: <input type="text" name="tuoi"> <br>
+        Dang hoat dong:
+            Dang hoat dong: <input type="radio" name="dangHoatDong" value="true">
+            Khong hoat dong: <input type="radio" name="dangHoatDong" value="false">
+        <br>
+        <button>Save</button>
+    </form>
+    <br>
     Bang nguoi dung:
     <table>
         <thead>

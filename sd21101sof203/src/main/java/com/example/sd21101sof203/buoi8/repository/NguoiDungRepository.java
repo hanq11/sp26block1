@@ -35,4 +35,19 @@ public class NguoiDungRepository {
 
         return danhSach;
     }
+
+    public void themNguoiDung(NguoiDung nguoiDung) {
+        String sql = "INSERT INTO nguoi_dung (ten, email, tuoi, dang_hoat_dong) VALUES (?, ?, ?, ?)";
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, nguoiDung.getTen());
+            ps.setString(2, nguoiDung.getEmail());
+            ps.setInt(3, nguoiDung.getTuoi());
+            ps.setBoolean(4, nguoiDung.getDangHoatDong());
+
+            ps.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
