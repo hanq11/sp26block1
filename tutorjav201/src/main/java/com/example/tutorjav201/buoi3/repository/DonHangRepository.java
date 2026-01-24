@@ -2,7 +2,9 @@ package com.example.tutorjav201.buoi3.repository;
 
 import com.example.tutorjav201.buoi3.model.DonHang;
 import com.example.tutorjav201.buoi3.util.HibernateConfigBuoi3;
+import jakarta.persistence.Query;
 import org.hibernate.Session;
+import org.hibernate.query.NativeQuery;
 
 import java.util.List;
 
@@ -52,5 +54,19 @@ public class DonHangRepository {
             session.getTransaction().rollback();
             e.printStackTrace();
         }
+    }
+
+    // JPQL - jarkatar persistence query language - huong toi object
+    public List<DonHang> timKiemTheoTenKhachHangJPQL(String tenKhachHang) {
+        Query query = session.createQuery("SELECT dh FROM DonHang dh WHERE dh.tenKhachHang LIKE :tenKhachHang");
+        query.setParameter("tenKhachHang", "%" + tenKhachHang + "%");
+        return query.getResultList();
+    }
+
+    // SQL - huong toi bang
+    public List<DonHang> timKiemTheoTenKhachHangSQL(String tenKhachHang) {
+        Query query = session.createNativeQuery("SELECT * FROM don_hang WHERE ten_khach_hang LIKE :tenKhachHang", DonHang.class);
+        query.setParameter("tenKhachHang", "%" + tenKhachHang + "%");
+        return query.getResultList();
     }
 }

@@ -12,6 +12,12 @@
     <title>Title</title>
 </head>
 <body>
+    Tim kiem theo ten khach hang:
+    <form action="/don-hang/tim-kiem" method="get">
+        Ten khach hang: <input type="text" name="tenKhachHang"> <br>
+        <button>Search</button>
+    </form>
+    <br>
     Them don hang:
     <form action="/don-hang/them" method="post">
         tenKhachHang <input type="text" name="tenKhachHang"> <br>
