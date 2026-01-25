@@ -44,6 +44,10 @@
                     <td>${nd.email}</td>
                     <td>${nd.tuoi}</td>
                     <td>${nd.dangHoatDong == false ? "Khong hoat dong" : "Hoat dong"}</td>
+                    <td>
+                        <a href="/nguoi-dung/view-update?id=${nd.id}">View update</a>
+                        <a href="/nguoi-dung/xoa?id=${nd.id}">Xoa</a>
+                    </td>
                 </tr>
             </c:forEach>
         </tbody>

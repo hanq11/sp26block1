@@ -25,7 +25,23 @@ public class NguoiDungServlet extends HttpServlet {
         String uri = req.getRequestURI();
         if(uri.contains("hien-thi")) {
             hienThi(req, resp);
+        } else if(uri.contains("view-update")) {
+            viewUpdate(req, resp);
+        } else if(uri.contains("xoa")) {
+            xoaNguoiDung(req, resp);
         }
+    }
+
+    private void xoaNguoiDung(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        Integer id = Integer.valueOf(req.getParameter("id"));
+        nguoiDungRepository.xoaNguoiDung(id);
+        resp.sendRedirect("/nguoi-dung/hien-thi");
+    }
+
+    private void viewUpdate(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Integer id = Integer.valueOf(req.getParameter("id"));
+        req.setAttribute("nd", nguoiDungRepository.findById(id));
+        req.getRequestDispatcher("/buoi8/view-update.jsp").forward(req,resp);
     }
 
     private void hienThi(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -38,7 +54,22 @@ public class NguoiDungServlet extends HttpServlet {
         String uri = req.getRequestURI();
         if(uri.contains("them")) {
             themNguoiDung(req, resp);
+        } else if(uri.contains("sua")) {
+            suaNguoiDung(req, resp);
         }
+    }
+
+    private void suaNguoiDung(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        Integer id = Integer.valueOf(req.getParameter("id"));
+        String ten = req.getParameter("ten");
+        String email = req.getParameter("email");
+        Integer tuoi = Integer.valueOf(req.getParameter("tuoi"));
+        Boolean dangHoatDong = Boolean.valueOf(req.getParameter("dangHoatDong"));
+
+        NguoiDung nguoiDung = new NguoiDung(id, ten, email, tuoi, dangHoatDong);
+        nguoiDungRepository.updateNguoiDung(nguoiDung);
+
+        resp.sendRedirect("/nguoi-dung/hien-thi");
     }
 
     private void themNguoiDung(HttpServletRequest req, HttpServletResponse resp) throws IOException {

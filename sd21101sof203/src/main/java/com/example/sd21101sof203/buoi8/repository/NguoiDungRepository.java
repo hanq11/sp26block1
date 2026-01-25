@@ -50,4 +50,50 @@ public class NguoiDungRepository {
             e.printStackTrace();
         }
     }
+
+    public NguoiDung findById(Integer id) {
+        String sql = "SELECT * FROM nguoi_dung WHERE id = ?";
+        try {
+          PreparedStatement ps = connection.prepareStatement(sql);
+          ps.setInt(1, id);
+          ResultSet rs = ps.executeQuery();
+          rs.next();
+          return new NguoiDung(
+                  rs.getInt("id"),
+                  rs.getString("ten"),
+                  rs.getString("email"),
+                  rs.getInt("tuoi"),
+                  rs.getBoolean("dang_hoat_dong")
+          );
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
+    }
+
+    public void updateNguoiDung(NguoiDung nguoiDung) {
+        String sql = "UPDATE nguoi_dung SET ten = ?, email = ?, tuoi = ?, dang_hoat_dong = ? WHERE id = ?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, nguoiDung.getTen());
+            ps.setString(2, nguoiDung.getEmail());
+            ps.setInt(3, nguoiDung.getTuoi());
+            ps.setBoolean(4, nguoiDung.getDangHoatDong());
+            ps.setInt(5, nguoiDung.getId());
+            ps.execute();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    public void xoaNguoiDung(Integer id) {
+        String sql = "DELETE FROM nguoi_dung WHERE id = ?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, id);
+            ps.execute();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
 }
