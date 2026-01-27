@@ -2,6 +2,7 @@ package com.example.sof302201sof3022.buoi9.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 @Configuration
 public class BeanDemo {
@@ -11,7 +12,7 @@ public class BeanDemo {
     }
 
     @Bean("bean2")
-//    @Primary
+    @Primary
     public GiangVien getGiangVien2() {
         return new GiangVien(2, "Nguyen Van A");
     }

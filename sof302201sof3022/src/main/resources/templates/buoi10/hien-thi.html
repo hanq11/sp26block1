@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>tenBacSi</th>
+                <th>tuoi</th>
+                <th>gioiTinh</th>
+                <th>ten benhVien</th>
+                <th>diaChi benhVien</th>
+            </tr>
+        </thead>
+        <tbody>
+            <th:block th:each="bs : ${listBacSi}">
+                <tr>
+                    <td th:text="${bs.id}"></td>
+                    <td th:text="${bs.tenBacSi}"></td>
+                    <td th:text="${bs.tuoi}"></td>
+                    <td th:text="${bs.gioiTinh}"></td>
+                    <td th:text="${bs.benhVien.tenBenhVien}"></td>
+                    <td th:text="${bs.benhVien.diaChi}"></td>
+                </tr>
+            </th:block>
+        </tbody>
+    </table>
+</body>
+</html>
