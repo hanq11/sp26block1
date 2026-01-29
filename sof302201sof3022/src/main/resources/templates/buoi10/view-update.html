@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th=“http://www.thymeleaf.org”>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    Sua bac si:
+    <form action="/bac-si/sua" method="post">
+        Id: <input type="text" name="id" th:value="${bacSi.id}"> <br>
+        Ten bac si: <input type="text" name="tenBacSi" th:value="${bacSi.tenBacSi}"> <br>
+        Tuoi: <input type="text" name="tuoi" th:value="${bacSi.tuoi}"> <br>
+        Gioi tinh:
+        Nam <input type="radio" name="gioiTinh" value="true" th:checked="${bacSi.gioiTinh == true}">
+        Nu <input type="radio" name="gioiTinh" value="false" th:checked="${bacSi.gioiTinh == false}">
+        <br>
+        Benh vien:
+        <select name="benhVien">
+            <th:block th:each="bv : ${listBenhVien}">
+                <option th:value="${bv.id}" th:label="${bv.tenBenhVien}"
+                    th:selected="${bacSi.benhVien.id == bv.id}"
+                ></option>
+            </th:block>
+        </select>
+        <br>
+        <button>Save</button>
+    </form>
+</body>
+</html>
