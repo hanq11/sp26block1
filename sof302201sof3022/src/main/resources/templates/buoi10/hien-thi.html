@@ -3,22 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>i {color: red}</style>
 </head>
 <body>
     Them bac si:
-    <form action="/bac-si/them" method="post">
-        Ten bac si: <input type="text" name="tenBacSi"> <br>
-        Tuoi: <input type="text" name="tuoi"> <br>
+    <form th:object="${bacSi}" action="/bac-si/them" method="post">
+        Ten bac si: <input type="text" th:field="*{tenBacSi}">
+        <i th:errors="*{tenBacSi}"></i>
+        <br>
+        Tuoi: <input type="text" th:field="*{tuoi}">
+        <i th:errors="*{tuoi}"></i>
+        <br>
         Gioi tinh:
-            Nam <input type="radio" name="gioiTinh" value="true">
-            Nu <input type="radio" name="gioiTinh" value="false">
+            Nam <input type="radio" th:field="*{gioiTinh}" value="true">
+            Nu <input type="radio" th:field="*{gioiTinh}" value="false">
+            <i th:errors="*{gioiTinh}"></i>
         <br>
         Benh vien:
-        <select name="benhVien">
+        <select th:field="*{benhVien}">
+            <option value="" selected>Default</option>
             <th:block th:each="bv : ${listBenhVien}">
                 <option th:value="${bv.id}" th:label="${bv.tenBenhVien}"></option>
             </th:block>
         </select>
+        <i th:errors="*{benhVien}"></i>
         <br>
         <button>Save</button>
     </form>
