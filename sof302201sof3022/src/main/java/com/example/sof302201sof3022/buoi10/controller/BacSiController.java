@@ -25,13 +25,18 @@ public class BacSiController {
 
     @GetMapping("/hien-thi")
     public String hienThi(Model model, @ModelAttribute("bacSi") BacSi bacSi) {
-        model.addAttribute("listBacSi", bacSiRepository.findAll());
+//        model.addAttribute("listBacSi", bacSiRepository.findAll());
         return "/buoi10/hien-thi";
     }
 
     @ModelAttribute("listBenhVien")
     public List<BenhVien> getListBenhVien() {
         return benhVienRepository.findAll();
+    }
+
+    @ModelAttribute("listBacSi")
+    public List<BacSi> getListBacSi() {
+        return bacSiRepository.findAll();
     }
     // .findAll
     // findById
