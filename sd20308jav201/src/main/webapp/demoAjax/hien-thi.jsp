@@ -13,15 +13,15 @@
     <script>
         function getData() {
             $.ajax({
-                url: "/api/list",
-                method: "get",
-                dataType: "json",
-                success: function (data) {
-                    document.getElementById("data").innerText = data.id + " " + data.name + " " + data.gender
-                },
-                error: function (error) {
-                    document.getElementById("data").innerText = "Loi"
-                }
+                    url: "/api/list",
+                    method: "get",
+                    dataType: "json",
+                    success: function (data) {
+                        document.getElementById("data").innerText = data.id + " " + data.name + " " + data.gender
+                    },
+                    error: function (error) {
+                        document.getElementById("data").innerText = "Loi"
+                    }
                 }
             )
         }
