@@ -7,6 +7,9 @@ import com.example.sof302201sof3022.buoi10.repository.BenhVienRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -25,19 +28,27 @@ public class BacSiController {
 
     @GetMapping("/hien-thi")
     public String hienThi(Model model, @ModelAttribute("bacSi") BacSi bacSi) {
-//        model.addAttribute("listBacSi", bacSiRepository.findAll());
+        model.addAttribute("listBacSi", bacSiRepository.findAll());
         return "/buoi10/hien-thi";
+    }
+
+    @GetMapping("/phan-trang")
+    public String phanTrang(@RequestParam(name = "page", defaultValue = "0") Integer page, Model model) {
+        int pageSize = 2;
+        Pageable pageable = PageRequest.of(page, pageSize);
+        model.addAttribute("page", bacSiRepository.findAll(pageable));
+        return "/buoi10/phan-trang";
     }
 
     @ModelAttribute("listBenhVien")
     public List<BenhVien> getListBenhVien() {
         return benhVienRepository.findAll();
     }
-
-    @ModelAttribute("listBacSi")
-    public List<BacSi> getListBacSi() {
-        return bacSiRepository.findAll();
-    }
+//
+//    @ModelAttribute("listBacSi")
+//    public List<BacSi> getListBacSi() {
+//        return bacSiRepository.findAll();
+//    }
     // .findAll
     // findById
     //  delete

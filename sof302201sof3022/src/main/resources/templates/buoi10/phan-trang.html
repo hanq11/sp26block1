@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th=“http://www.thymeleaf.org”>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table>
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>tenBacSi</th>
+            <th>tuoi</th>
+            <th>gioiTinh</th>
+            <th>ten benhVien</th>
+            <th>diaChi benhVien</th>
+            <th>Hanh dong</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="bs : ${page.getContent()}">
+            <tr>
+                <td th:text="${bs.id}"></td>
+                <td th:text="${bs.tenBacSi}"></td>
+                <td th:text="${bs.tuoi}"></td>
+                <td th:text="${bs.gioiTinh == true ? 'Nam' : 'Nu'}"></td>
+                <td th:text="${bs.benhVien.tenBenhVien}"></td>
+                <td th:text="${bs.benhVien.diaChi}"></td>
+                <td>
+                    <a th:href="@{|/bac-si/view-update/${bs.id}|}">View update</a>
+                    <a th:href="@{|/bac-si/xoa?id=${bs.id}|}">Xoa</a>
+                </td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+    <a th:href="@{|/bac-si/phan-trang?page=0|}">First</a>
+    <a th:href="@{|/bac-si/phan-trang?page=${page.isFirst() ? 0 : page.getNumber() - 1}|}">Prev</a>
+    <a th:href="@{|/bac-si/phan-trang?page=${page.isLast() ? page.getNumber() : page.getNumber() + 1}|}">Next</a>
+    <a th:href="@{|/bac-si/phan-trang?page=${page.getTotalPages() - 1}|}">Last</a>
+    <br>
+    <th:block th:each="i : ${#numbers.sequence(0, page.getTotalPages() - 1)}">
+        <a th:href="@{|/bac-si/phan-trang?page=${i}|}" th:text="${i + 1}"></a>
+    </th:block>
+</body>
+</html>
