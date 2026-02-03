@@ -40,6 +40,11 @@ public class BacSiController {
         return "/buoi10/phan-trang";
     }
 
+    @GetMapping("/tim-kiem")
+    public String timKiem(@RequestParam("tenBacSi") String tenBacSi, Model model, @ModelAttribute("bacSi") BacSi bacSi) {
+        model.addAttribute("listBacSi", bacSiRepository.findBacSisByTenBacSiContains(tenBacSi));
+        return "/buoi10/hien-thi";
+    }
     @ModelAttribute("listBenhVien")
     public List<BenhVien> getListBenhVien() {
         return benhVienRepository.findAll();

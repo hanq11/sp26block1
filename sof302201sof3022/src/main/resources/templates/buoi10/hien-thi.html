@@ -6,6 +6,12 @@
     <style>i {color: red}</style>
 </head>
 <body>
+    Tim kiem bac si:
+    <form action="/bac-si/tim-kiem" method="get">
+        Ten bac si: <input type="text" name="tenBacSi"> <br>
+        <button>Search</button>
+    </form>
+    <br>
     Them bac si:
     <form th:object="${bacSi}" action="/bac-si/them" method="post">
         Ten bac si: <input type="text" th:field="*{tenBacSi}">
