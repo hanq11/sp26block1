@@ -9,7 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8c11d503-149f-441d-9adc-cfe267404520" name="Default Changelist" comment="" />
+    <list default="true" id="8c11d503-149f-441d-9adc-cfe267404520" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/chuademau1sof203/entity/BaiHatRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/chuademau1sof203/entity/BaiHatResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/chuademau1sof203/service/BaiHatService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/chuademau1sof203/controller/BaiHatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/chuademau1sof203/controller/BaiHatController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/chuademau1sof203/entity/BaiHat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/chuademau1sof203/entity/BaiHat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/chuademau1sof203/repository/BaiHatRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/chuademau1sof203/repository/BaiHatRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/hien-thi.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/hien-thi.jsp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,8 +27,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -51,6 +60,11 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.chuademau1sof203.entity" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
@@ -161,6 +175,8 @@
       <option name="presentableId" value="Default" />
       <updated>1770027190608</updated>
       <workItem from="1770027192028" duration="2724000" />
+      <workItem from="1771842811952" duration="123000" />
+      <workItem from="1771842971765" duration="1002000" />
     </task>
     <servers />
   </component>
@@ -177,5 +193,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

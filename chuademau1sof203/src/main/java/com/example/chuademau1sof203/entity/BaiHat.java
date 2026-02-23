@@ -16,8 +16,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class
-BaiHat {
+public class BaiHat {
     private Integer id;
     private String tenBaiHat;
     private Float gia;

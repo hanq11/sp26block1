@@ -1,7 +1,9 @@
 package com.example.chuademau1sof203.controller;
 
 import com.example.chuademau1sof203.entity.BaiHat;
+import com.example.chuademau1sof203.entity.BaiHatRequest;
 import com.example.chuademau1sof203.repository.BaiHatRepository;
+import com.example.chuademau1sof203.service.BaiHatService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -20,6 +22,7 @@ import java.io.IOException;
 })
 public class BaiHatController extends HttpServlet {
     BaiHatRepository baiHatRepository = new BaiHatRepository();
+    BaiHatService baiHatService = new BaiHatService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -46,7 +49,8 @@ public class BaiHatController extends HttpServlet {
     }
 
     private void hienThi(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("listBaiHat", baiHatRepository.getAll());
+        req.setAttribute("listBaiHat", baiHatService.getAllBaiHat());
+        req.setAttribute("listCaSi", baiHatRepository.getAllCaSi());
         req.getRequestDispatcher("/hien-thi.jsp").forward(req, resp);
     }
 
@@ -80,7 +84,7 @@ public class BaiHatController extends HttpServlet {
         Boolean phatHanhDia = Boolean.valueOf(req.getParameter("phatHanhDia"));
         String ngayRaMat = req.getParameter("ngayRaMat");
 
-        BaiHat bh = new BaiHat(null, tenBaiHat, gia, phatHanhDia, ngayRaMat);
+        BaiHatRequest bh = new BaiHatRequest(null, tenBaiHat, gia, phatHanhDia, ngayRaMat);
         baiHatRepository.addBaiHat(bh);
 
         resp.sendRedirect("/bai-hat/hien-thi");

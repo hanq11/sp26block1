@@ -12,6 +12,12 @@
     <title>Title</title>
 </head>
 <body>
+    Combobox ca si:
+    <select>
+        <c:forEach items="${listCaSi}" var="cs">
+            <option label="${cs}"></option>
+        </c:forEach>
+    </select>
     Them bai hat:
     <form action="/bai-hat/add" method="post">
         Ten bai hat: <input type="text" name="tenBaiHat"> <br>
@@ -22,7 +28,7 @@
         <br>
         Ngay ra mat: <input type="text" name="ngayRaMat">
         <br>
-        <button>Save</button>
+        <button onclick="return alert('Ban co chac muon them khong')">Save</button>
     </form>
     <br>
     Bang bai hat:

@@ -1,6 +1,8 @@
 package com.example.chuademau1sof203.repository;
 
 import com.example.chuademau1sof203.entity.BaiHat;
+import com.example.chuademau1sof203.entity.BaiHatRequest;
+import com.example.chuademau1sof203.entity.BaiHatResponse;
 import com.example.chuademau1sof203.util.DbConnect;
 
 import java.sql.*;
@@ -14,14 +16,14 @@ public class BaiHatRepository {
         connection = DbConnect.getConnection();
     }
 
-    public List<BaiHat> getAll() {
+    public List<BaiHatResponse> getAll() {
         String sql = "SELECT * FROM bai_hat";
-        List<BaiHat> danhSach = new ArrayList<>();
+        List<BaiHatResponse> danhSach = new ArrayList<>();
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                danhSach.add(new BaiHat(
+                danhSach.add(new BaiHatResponse(
                         rs.getInt("id"),
                         rs.getString("ten_bai_hat"),
                         rs.getFloat("gia"),
@@ -36,7 +38,23 @@ public class BaiHatRepository {
         return null;
     }
 
-    public void addBaiHat(BaiHat baiHat) {
+    public List<String> getAllCaSi() {
+        String sql = "SELECT ten_ca_si FROM ca_si";
+        List<String> danhSach = new ArrayList<>();
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                danhSach.add(rs.getString("ten_ca_si"));
+            }
+            return danhSach;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
+    }
+
+    public void addBaiHat(BaiHatRequest baiHat) {
         String sql = "INSERT INTO bai_hat (ten_bai_hat, gia, phat_hanh_dia, ngay_ra_mat) VALUES (?, ?, ?, ?)";
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
